@@ -50,6 +50,7 @@ img {
     height: auto;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    border: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 /* Header */
@@ -162,8 +163,8 @@ nav {
 /* Portfolio Grid */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .portfolio-item {
@@ -182,9 +183,12 @@ nav {
 }
 
 .portfolio-image {
-    height: 250px;
+    height: 200px;
     overflow: hidden;
     position: relative;
+    padding: 8px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ef 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .portfolio-image img {
@@ -193,6 +197,7 @@ nav {
     object-fit: cover;
     object-position: center;
     transition: transform 0.5s ease;
+    border-radius: 4px;
 }
 
 .portfolio-item:hover .portfolio-image img {
@@ -200,15 +205,15 @@ nav {
 }
 
 .portfolio-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .portfolio-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     color: var(--primary-color);
 }
 
@@ -298,6 +303,18 @@ footer {
 }
 
 /* Media Queries */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -315,16 +332,16 @@ footer {
         font-size: 2.5rem;
     }
     
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .section-title {
         font-size: 2rem;
     }
 }
 
 @media (max-width: 576px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
@@ -334,7 +351,7 @@ footer {
     }
     
     .portfolio-item {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 }
 
