@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -25,9 +29,14 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1800px;
     margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* For the portfolio sections specifically */
+.section .container {
     padding: 0 15px;
 }
 
@@ -50,7 +59,7 @@ img {
     height: auto;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 /* Header */
@@ -162,12 +171,15 @@ nav {
 
 /* Portfolio Grid */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem 0;
 }
 
 .portfolio-item {
+    flex: 0 0 330px;
     background: white;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -183,10 +195,10 @@ nav {
 }
 
 .portfolio-image {
-    height: 200px;
+    height: 250px;
     overflow: hidden;
     position: relative;
-    padding: 8px;
+    padding: 4px;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ef 100%);
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
@@ -303,18 +315,6 @@ footer {
 }
 
 /* Media Queries */
-@media (max-width: 1200px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -335,13 +335,13 @@ footer {
     .section-title {
         font-size: 2rem;
     }
+    
+    .portfolio-item {
+        flex: 0 0 280px;
+    }
 }
 
 @media (max-width: 576px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .hero h1 {
         font-size: 2rem;
     }
@@ -351,7 +351,8 @@ footer {
     }
     
     .portfolio-item {
-        margin-bottom: 1.5rem;
+        flex: 0 0 220px;
+        margin-bottom: 0;
     }
 }
 
